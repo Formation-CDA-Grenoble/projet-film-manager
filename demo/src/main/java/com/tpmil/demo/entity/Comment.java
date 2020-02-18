@@ -1,3 +1,5 @@
+//léo
+
 package com.tpmil.demo.entity;
 
 import java.util.Date;
@@ -12,76 +14,54 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import com.tpmil.demo.entity.*;
 
 @Entity
-@Table(name = "book")
+@Table(name = "comment")
 @EntityListeners(AuditingEntityListener.class)
-public class Book {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true, nullable = false)
     private long id;
 
-    @Column(name = "title", nullable = false)
-    private String title;
+    @Column(name = "content", nullable = false)
+    private String content;
 
-    @Column(name = "summary", nullable = false)
-    private String summary;
+    @Column(name = "moovie_id", nullable = false)
+    private long moovie_id;
 
-    @Column(name = "published_at", nullable = true)
-    private Date publishedAt;
-
-    @OneToMany(mappedBy = "book")
-    @JsonIgnoreProperties("book")
-    private Set<Chapter> chapters;
-
-    @ManyToMany
-    @JoinTable(name = "books_in_tags",
-        joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"))    
-    @JsonIgnoreProperties("books")
-    private Set<Tag> tags;
+    @Column(name = "user_id", nullable = true)
+    private long user_id;
 
 
-    public Date getPublishedAt() {
-    	return this.publishedAt;
+    public String getContent() {
+    	return this.content;
     }
-    public void setPublishedAt(Date publishedAt) {
-    	this.publishedAt = publishedAt;
-    }
-
-    public Set<Tag> getTags() {
-    	return this.tags;
-    }
-    public void setTags(Set<Tag> tags) {
-    	this.tags = tags;
-    }
-
-    public Set<Chapter> getChapters() {
-    	return this.chapters;
-    }
-    public void setChapters(Set<Chapter> chapters) {
-    	this.chapters = chapters;
-    }
-
-    public String getSummary() {
-    	return this.summary;
-    }
-    public void setSummary(String summary) {
-    	this.summary = summary;
-    }
-
-    public String getTitle() {
-    	return this.title;
-    }
-    public void setTitle(String title) {
-    	this.title = title;
-    }
-
-    public long getId() {
-    	return this.id;
-    }
-    public void setId(long id) {
-    	this.id = id;
+    public void setContent(String content) {
+    	this.content = content;
     }
 
 
-}
+    public String getMoovie_id() {
+    	return this.moovie_id;
+    }
+    public void setMoovie_id(String moovie_id) {
+    	this.moovie_id = moovie_id;
+    }
+
+    
+    public String getUser_id() {
+    	return this.user_id;
+    }
+    public void setUser_id(String user_id) {
+    	this.user_id = user_id;
+    }
+
+
+    @OneToMany(mappedBy = "Comment")
+    @JsonIgnoreProperties("Comment")
+    private Set<moovie> moovie;
+
+    
+    @OneToMany(mappedBy = "Comment")
+    @JsonIgnoreProperties("Comment")
+    private Set<user> user;
+
