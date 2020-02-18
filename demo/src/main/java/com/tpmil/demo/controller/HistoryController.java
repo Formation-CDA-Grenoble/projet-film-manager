@@ -59,8 +59,8 @@ public class HistoryController {
         // Sauvegarde le produit en BDD et renvoie une copie
         return historyRepository.save(history);
     }
-
-    private History fetchHistory(Long historyId) {
+ 
+     private History fetchHistory(Long historyId) {
         return null;
     }
 
