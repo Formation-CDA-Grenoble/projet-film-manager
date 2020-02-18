@@ -2,16 +2,10 @@
 
 package com.tpmil.demo.entity;
 
-import java.util.Date;
-import java.util.Set;
-
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.tpmil.demo.entity.*;
+
 
 @Entity
 @Table(name = "user")
@@ -23,8 +17,11 @@ public class User {
     @Column(name = "id", unique = true, nullable = false)
 
     private long id ; 
-    private String username ; 
-    private String mail ; 
+    @Column(name = "username", nullable = false)
+    private String username ;
+    @Column(name = "mail", nullable = false) 
+    private String mail ;
+    @Column(name = "password", nullable = false) 
     private String password ; 
 
 public long getId() {
@@ -57,3 +54,4 @@ public void setId(long id) {
     public void setPassword(String password) {
     	this.password = password;
     }
+}

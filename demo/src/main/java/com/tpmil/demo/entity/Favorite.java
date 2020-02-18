@@ -2,16 +2,10 @@
 
 package com.tpmil.demo.entity;
 
-import java.util.Date;
-import java.util.Set;
-
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.tpmil.demo.entity.*;
+
 
 @Entity
 @Table(name = "favorite")
@@ -21,10 +15,12 @@ public class Favorite {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true, nullable = false)
+    private long id ;
 
-    private long id ; 
-    private long user_id ; 
+    @Column(name = "moovie_id", nullable = false)
     private long movie_id ; 
+    @Column(name = "user_id", nullable = true)
+    private long user_id ; 
 
     public long getId() {
     	return this.id;
@@ -48,3 +44,4 @@ public class Favorite {
     public void setMovie_id(long movie_id) {
     	this.movie_id = movie_id;
     }
+}

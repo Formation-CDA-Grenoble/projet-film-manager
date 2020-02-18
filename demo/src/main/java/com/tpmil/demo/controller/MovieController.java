@@ -25,12 +25,12 @@ public class MovieController {
     // Une instance de ProductRepository est automatiquement créée
     // et rangée dans cette propriété à la construction du contrôleur
     @Autowired
-    private MovieRepository productRepository;
+    
     
     // Renvoie tous les produits de la base de données
     @GetMapping("")
     public List<Movie> getAllmovie() {
-        return movieRepository.findAll();
+        return MovieRepository.findAll();
     }
 
     // Crée un nouveau produit

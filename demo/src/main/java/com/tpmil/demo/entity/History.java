@@ -3,15 +3,9 @@
 package com.tpmil.demo.entity;
 
 import java.util.Date;
-import java.util.Set;
-
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.tpmil.demo.entity.*;
 
 @Entity
 @Table(name = "history")
@@ -24,8 +18,11 @@ public class History {
 
     private long id ; 
     private Date date ; 
-    private long user_id ; 
+    @Column(name = "moovie_id", nullable = false)
     private long movie_id ; 
+    @Column(name = "user_id", nullable = true)
+    private long user_id ; 
+    
 
   public long getId() {
   	return this.id;
@@ -57,3 +54,4 @@ public class History {
     public void setMovie_id(long movie_id) {
     	this.movie_id = movie_id;
     }
+  }

@@ -2,10 +2,7 @@
 package com.tpmil.demo.entity;
 
 import java.util.Date;
-
-
 import javax.persistence.*;
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
@@ -24,12 +21,20 @@ public class Movie {
     // Elle est unique et ne peut pas être nulle
     @Column(name = "id", unique = true, nullable = false)
     private long id;
+
+    @Column(name = "original_title", nullable = false)
     private String Original_title;
+    @Column(name = "overview", nullable = false)
     private String Overview;
+    @Column(name = "poster_path", nullable = false)
     private String Poster_path;
+    @Column(name = "release_date", nullable = false)
     private Date Release_date;
+    @Column(name = "original_language", nullable = false)
     private String Original_language;
+    @Column(name = "popularity", nullable = false)
     private Float Popularity;
+    @Column(name = "genre_id", nullable = false)
     private int genre;
 
  public long getId() {
