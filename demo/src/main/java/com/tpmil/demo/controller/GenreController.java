@@ -18,7 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 // Ce contrôleur fonctionne sur le modèle d'une API REST
 @RestController
 // Ce contrôleur répond à toutes les requêtes sur les endpoints /api/Genre
-@RequestMapping("/api/Genres")
+@RequestMapping("/api/genres")
 // Ce contrôleur accepte les requêtes venant d'un serveur différent
 @CrossOrigin
 public class GenreController {
