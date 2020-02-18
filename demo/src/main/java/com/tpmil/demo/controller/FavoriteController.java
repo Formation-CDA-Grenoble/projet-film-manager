@@ -1,4 +1,4 @@
-//mouctar
+//mouctar 
 
 package com.tpmil.demo.controller;
 
@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.tpmil.demo.entity.Movie;
-import com.tpmil.demo.repository.MovieRepository;
+import com.tpmil.demo.entity.Favorite;
+import com.tpmil.demo.repository.FavoriteRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,79 +17,76 @@ import org.springframework.web.server.ResponseStatusException;
 
 // Ce contrôleur fonctionne sur le modèle d'une API REST
 @RestController
-// Ce contrôleur répond à toutes les requêtes sur les endpoints /api/movie
-@RequestMapping("/api/movies")
+// Ce contrôleur répond à toutes les requêtes sur les endpoints /api/Favorite
+@RequestMapping("/api/favorites")
 // Ce contrôleur accepte les requêtes venant d'un serveur différent
 @CrossOrigin
-public class MovieController {
+public class FavoriteController {
 
     // Injection de dépendance
     // Une instance de ProductRepository est automatiquement créée
     // et rangée dans cette propriété à la construction du contrôleur
     @Autowired
-    private MovieRepository movieRepository;
+    private FavoriteRepository FavoriteRepository;
     
     
     // Renvoie tous les produits de la base de données
     @GetMapping("")
-    public List<Movie> getAllmovie() {
-        return movieRepository.findAll();
+    public List<Favorite> getAllFavorite() {
+        return FavoriteRepository.findAll();
     }
 
     // Crée un nouveau produit
     @PostMapping("")
     // En cas de succès, renvoie un code HTTP 201 au lieu du code 200 par défaut
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Movie createMovie(@Valid @RequestBody Movie movie) {
+    public Favorite createFavorite(@Valid @RequestBody Favorite Favorite) {
         // Sauvegarde le produit en BDD et renvoie une copie 
-        return movieRepository.save(movie);
+        return FavoriteRepository.save(Favorite);
     }
 
     // Met à jour les propriétés d'un produit déjà existant
     @PutMapping("/{id}")
-    public Movie updateMovie(@PathVariable(value = "id") Long movieId, @Valid @RequestBody Movie newMovie) {
+    public Favorite updateFavorite(@PathVariable(value = "id") Long FavoriteId, @Valid @RequestBody Favorite newFavorite) {
         // Récupère le produit tel qu'il existe actuellement dans la BDD
-        Movie movie = this.fetchMovie(movieId);
+        Favorite Favorite = this.fetchFavorite(FavoriteId);
         // Remplace toutes ses propriétés par celles de l'objet entrant
-        movie.setOriginal_title(newMovie.getOriginal_title());
-        movie.setOverview(newMovie.getOverview());
-        movie.setPoster_path(newMovie.getPoster_path());
-        movie.setRelease_date(newMovie.getRelease_date());
-        movie.setOriginal_language(newMovie.getOriginal_language());
-        movie.setPopularity(newMovie.getPopularity());
-        movie.setGenre_id(newMovie.getGenre_id());
+        Favorite.setUser_id(newFavorite.getUser_id());
+        Favorite.setMovie_id(newFavorite.getMovie_id());
+        
+       
         
         // Sauvegarde le produit en BDD et renvoie une copie
-        return movieRepository.save(movie);
+        return FavoriteRepository.save(Favorite);
     }
 
-    private Movie fetchMovie(Long movieId) {
+    private Favorite fetchFavorite(Long FavoriteId) {
         return null;
     }
 
     // Renvoie un produit particulier de la base de données (en fonction de son id)
     @GetMapping("/{id}")
-    public Movie getProductById(@PathVariable(value = "id") Long movieId) {
-        return this.fetchProduct(movieId);
+    public Favorite getProductById(@PathVariable(value = "id") Long FavoriteId) {
+        return this.fetchProduct(FavoriteId);
     }
 
   
     @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteBookById(@PathVariable(value = "id") Long id) {
-        movieRepository.findById(id).orElseThrow(
-            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "movie not found")
+        FavoriteRepository.findById(id).orElseThrow(
+            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Favorite not found")
         );
-        movieRepository.deleteById(id);
+        FavoriteRepository.deleteById(id);
     }
 //
 //
     // Méthode réutilisable permettant d'aller chercher un produit dans la BDD en fonction de son id
     // Renvoie automatiquement une erreur 404 si le produit n'existe pas
-    public Movie fetchProduct(Long movieId) {
-        Movie movie = movieRepository.findById(movieId).orElseThrow(
-            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie not found")
+    public Favorite fetchProduct(Long FavoriteId) {
+        Favorite Favorite = FavoriteRepository.findById(FavoriteId).orElseThrow(
+            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Favorite not found")
         );
-        return movie;
+        return Favorite;
     }
 }

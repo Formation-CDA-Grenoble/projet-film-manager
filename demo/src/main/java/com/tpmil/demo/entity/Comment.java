@@ -31,7 +31,7 @@ public class Comment {
     private long id ;
     @Column(name = "content", nullable = false)
     private String content;
-    @Column(name = "moovie_id", nullable = false)
+    @Column(name = "movie_id", nullable = false)
     private long movie_id ; 
     @Column(name = "user_id", nullable = false)
     private long user_id ; 

@@ -1,4 +1,4 @@
-//mouctar
+//léo
 
 package com.tpmil.demo.controller;
 
@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.tpmil.demo.entity.Movie;
-import com.tpmil.demo.repository.MovieRepository;
+import com.tpmil.demo.entity.History;
+import com.tpmil.demo.repository.HistoryRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,79 +17,76 @@ import org.springframework.web.server.ResponseStatusException;
 
 // Ce contrôleur fonctionne sur le modèle d'une API REST
 @RestController
-// Ce contrôleur répond à toutes les requêtes sur les endpoints /api/movie
-@RequestMapping("/api/movies")
+// Ce contrôleur répond à toutes les requêtes sur les endpoints /api/History
+@RequestMapping("/api/history")
 // Ce contrôleur accepte les requêtes venant d'un serveur différent
 @CrossOrigin
-public class MovieController {
+public class HistoryController {
 
     // Injection de dépendance
     // Une instance de ProductRepository est automatiquement créée
     // et rangée dans cette propriété à la construction du contrôleur
     @Autowired
-    private MovieRepository movieRepository;
+    private HistoryRepository historyRepository;
     
     
     // Renvoie tous les produits de la base de données
     @GetMapping("")
-    public List<Movie> getAllmovie() {
-        return movieRepository.findAll();
+    public List<History> getAllhistory() {
+        return historyRepository.findAll();
     }
 
     // Crée un nouveau produit
     @PostMapping("")
     // En cas de succès, renvoie un code HTTP 201 au lieu du code 200 par défaut
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Movie createMovie(@Valid @RequestBody Movie movie) {
+    public History createHistory(@Valid @RequestBody History history) {
         // Sauvegarde le produit en BDD et renvoie une copie 
-        return movieRepository.save(movie);
+        return historyRepository.save(history);
     }
 
     // Met à jour les propriétés d'un produit déjà existant
     @PutMapping("/{id}")
-    public Movie updateMovie(@PathVariable(value = "id") Long movieId, @Valid @RequestBody Movie newMovie) {
+    public History updateHistory(@PathVariable(value = "id") Long historyId, @Valid @RequestBody History newhistory) {
         // Récupère le produit tel qu'il existe actuellement dans la BDD
-        Movie movie = this.fetchMovie(movieId);
+        History history = this.fetchHistory(historyId);
         // Remplace toutes ses propriétés par celles de l'objet entrant
-        movie.setOriginal_title(newMovie.getOriginal_title());
-        movie.setOverview(newMovie.getOverview());
-        movie.setPoster_path(newMovie.getPoster_path());
-        movie.setRelease_date(newMovie.getRelease_date());
-        movie.setOriginal_language(newMovie.getOriginal_language());
-        movie.setPopularity(newMovie.getPopularity());
-        movie.setGenre_id(newMovie.getGenre_id());
+        history.setDate(newhistory.getDate());
+        history.setUser_id(newhistory.getUser_id());
+        history.setMovie_id(newhistory.getMovie_id());
         
+     
         // Sauvegarde le produit en BDD et renvoie une copie
-        return movieRepository.save(movie);
+        return historyRepository.save(history);
     }
 
-    private Movie fetchMovie(Long movieId) {
+    private History fetchHistory(Long historyId) {
         return null;
     }
 
     // Renvoie un produit particulier de la base de données (en fonction de son id)
     @GetMapping("/{id}")
-    public Movie getProductById(@PathVariable(value = "id") Long movieId) {
-        return this.fetchProduct(movieId);
+    public History getProductById(@PathVariable(value = "id") Long historyId) {
+        return this.fetchProduct(historyId);
     }
 
   
     @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteBookById(@PathVariable(value = "id") Long id) {
-        movieRepository.findById(id).orElseThrow(
-            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "movie not found")
+        historyRepository.findById(id).orElseThrow(
+            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "history not found")
         );
-        movieRepository.deleteById(id);
+        historyRepository.deleteById(id);
     }
 //
 //
     // Méthode réutilisable permettant d'aller chercher un produit dans la BDD en fonction de son id
     // Renvoie automatiquement une erreur 404 si le produit n'existe pas
-    public Movie fetchProduct(Long movieId) {
-        Movie movie = movieRepository.findById(movieId).orElseThrow(
-            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie not found")
+    public History fetchProduct(Long historyId) {
+        History history = historyRepository.findById(historyId).orElseThrow(
+            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "history not found")
         );
-        return movie;
+        return history;
     }
 }

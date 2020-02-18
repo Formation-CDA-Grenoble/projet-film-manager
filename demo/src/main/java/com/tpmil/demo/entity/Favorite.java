@@ -17,7 +17,7 @@ public class Favorite {
     @Column(name = "id", unique = true, nullable = false)
     private long id ;
 
-    @Column(name = "moovie_id", nullable = false)
+    @Column(name = "movie_id", nullable = false)
     private long movie_id ; 
     @Column(name = "user_id", nullable = true)
     private long user_id ; 
