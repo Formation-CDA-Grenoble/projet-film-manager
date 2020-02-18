@@ -23,101 +23,83 @@ public class Movie {
     private long id;
 
     @Column(name = "original_title", nullable = false)
-    private String Original_title;
+    private String original_title;
     @Column(name = "overview", nullable = false)
-    private String Overview;
+    private String overview;
     @Column(name = "poster_path", nullable = false)
-    private String Poster_path;
+    private String poster_path;
     @Column(name = "release_date", nullable = false)
-    private Date Release_date;
+    private Date release_date;
     @Column(name = "original_language", nullable = false)
-    private String Original_language;
+    private String original_language;
     @Column(name = "popularity", nullable = false)
-    private Float Popularity;
+    private Float popularity;
     @Column(name = "genre_id", nullable = false)
-    private int genre;
+    private int genre_id;
 
- public long getId() {
- 	return this.id;
- }
- public void setId(long id) {
- 	this.id = id;
- }
+    public long getId() {
+        return this.id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
 
 
     public String getOriginal_title() {
-    	return this.Original_title;
+        return this.original_title;
     }
-    public void setOriginal_title(String Original_title) {
-    	this.Original_title = Original_title;
+    public void setOriginal_title(String original_title) {
+        this.original_title = original_title;
     }
 
 
     public String getOverview() {
-    	return this.Overview;
+        return this.overview;
     }
-    public void setOverview(String Overview) {
-    	this.Overview = Overview;
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 
 
     public String getPoster_path() {
-    	return this.Poster_path;
+        return this.poster_path;
     }
-    public void setPoster_path(String Poster_path) {
-    	this.Poster_path = Poster_path;
+    public void setPoster_path(String poster_path) {
+        this.poster_path = poster_path;
     }
 
 
     public Date getRelease_date() {
-    	return this.Release_date;
+        return this.release_date;
     }
-    public void setRelease_date(Date Release_date) {
-    	this.Release_date = Release_date;
+    public void setRelease_date(Date release_date) {
+        this.release_date = release_date;
     }
 
 
     public String getOriginal_language() {
-    	return this.Original_language;
+        return this.original_language;
     }
-    public void setOriginal_language(String Original_language) {
-    	this.Original_language = Original_language;
+    public void setOriginal_language(String original_language) {
+        this.original_language = original_language;
     }
 
 
     public Float getPopularity() {
-    	return this.Popularity;
+        return this.popularity;
     }
-    public void setPopularity(Float Popularity) {
-    	this.Popularity = Popularity;
+    public void setPopularity(Float popularity) {
+        this.popularity = popularity;
     }
 
 
-    public int getGenre() {
-    	return this.genre;
+    public int getGenre_id() {
+        return this.genre_id;
     }
-    public void setGenre(int genre) {
-    	this.genre = genre;
+    public void setGenre_id(int genre_id) {
+        this.genre_id = genre_id;
     }
-	public Object getOriginalTitle() {
-		return null;
-	}
-	public void setOriginalTitle(Object originalTitle) {
-	}
-	public Object getPosterPath() {
-		return null;
-	}
-	public void setPosterPath(Object posterPath) {
-	}
-	public Object getReleaseDate() {
-		return null;
-	}
-	public void setReleaseDate(Object releaseDate) {
-	}
-	public Object getOriginalLanguage() {
-		return null;
-	}
-	public void setOriginalLanguage(Object originalLanguage) {
-	}
-
 }
+
+
+    

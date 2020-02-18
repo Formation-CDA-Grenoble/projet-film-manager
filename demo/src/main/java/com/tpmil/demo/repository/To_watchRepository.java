@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface To_watchRepository extends JpaRepository<To_watch, Long> {
-    public List<To_watch> findAllByOrderByPublishedAtDesc();
+    public List<To_watch> findAll();
 }

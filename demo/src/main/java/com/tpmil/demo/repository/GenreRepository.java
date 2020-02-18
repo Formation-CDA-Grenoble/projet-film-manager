@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GenreRepository extends JpaRepository<Genre, Long> {
-    public List<Genre> findAllByOrderByPublishedAtDesc();
+    public List<Genre> findAll();
 }

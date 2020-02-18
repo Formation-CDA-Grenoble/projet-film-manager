@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-    public List<Comment> findAllByOrderByPublishedAtDesc();
+    public List<Comment> findAll();
 }
