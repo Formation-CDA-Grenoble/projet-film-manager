@@ -1,11 +1,11 @@
-package com.example.demo.controller;
+package com.tpmil.demo.controller;
 
 import java.util.List;
 
 import javax.validation.Valid;
 
-import com.example.demo.model.Movie;
-import com.example.demo.repository.MovieRepository;
+import com.tpmil.demo.entity.Movie;
+import com.tpmil.demo.repository.MovieRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -49,7 +49,7 @@ public class MovieController {
         Movie movie = this.fetchMovie(movieId);
         // Remplace toutes ses propriétés par celles de l'objet entrant
         movie.setOriginalTitle(newMovie.getOriginalTitle());
-        movie.setOverview(newM.getOverview());
+        movie.setOverview(newMovie.getOverview());
         movie.setPosterPath(newMovie.getPosterPath());
         movie.setReleaseDate(newMovie.getReleaseDate());
         movie.setOriginalLanguage(newMovie.getOriginalLanguage());
@@ -63,7 +63,7 @@ public class MovieController {
     // Renvoie un produit particulier de la base de données (en fonction de son id)
     @GetMapping("/{id}")
     public Movie getProductById(@PathVariable(value = "id") Long movieId) {
-        return this.fetchProduct(productId);
+        return this.fetchProduct(movieId);
     }
 
     // Supprimer un produit existant

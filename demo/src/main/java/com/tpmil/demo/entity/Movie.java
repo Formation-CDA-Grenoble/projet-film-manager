@@ -1,11 +1,14 @@
 // mouctar entity movie
 package com.tpmil.demo.entity;
 
-import java.util.Set;
 import java.util.Date;
+import java.util.Set;
+
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.tpmil.demo.entity.*;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
