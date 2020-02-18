@@ -99,5 +99,25 @@ public class Movie {
     public void setGenre(int genre) {
     	this.genre = genre;
     }
+	public Object getOriginalTitle() {
+		return null;
+	}
+	public void setOriginalTitle(Object originalTitle) {
+	}
+	public Object getPosterPath() {
+		return null;
+	}
+	public void setPosterPath(Object posterPath) {
+	}
+	public Object getReleaseDate() {
+		return null;
+	}
+	public void setReleaseDate(Object releaseDate) {
+	}
+	public Object getOriginalLanguage() {
+		return null;
+	}
+	public void setOriginalLanguage(Object originalLanguage) {
+	}
 
 }
