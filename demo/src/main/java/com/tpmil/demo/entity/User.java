@@ -1,8 +1,9 @@
 //léo
 
 package com.tpmil.demo.entity;
-
+import java.util.Set;
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
@@ -23,6 +24,18 @@ public class User {
     private String mail ;
     @Column(name = "password", nullable = false) 
     private String password ; 
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties("user")
+    private Set<Favorite> favorites;
+
+
+    public Set<Favorite> getFavorites() {
+    	return this.favorites;
+    }
+    public void setFavorites(Set<Favorite> favorites) {
+    	this.favorites = favorites;
+    }
 
 public long getId() {
 	return this.id;

@@ -51,7 +51,7 @@ public class FavoriteController {
         // Récupère le produit tel qu'il existe actuellement dans la BDD
         Favorite Favorite = this.fetchFavorite(FavoriteId);
         // Remplace toutes ses propriétés par celles de l'objet entrant
-        Favorite.setUser_id(newFavorite.getUser_id());
+        Favorite.setUser(newFavorite.getUser());
         Favorite.setMovie(newFavorite.getMovie());
         
        

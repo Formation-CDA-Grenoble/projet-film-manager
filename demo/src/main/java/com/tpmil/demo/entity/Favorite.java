@@ -22,9 +22,9 @@ public class Favorite {
 
   //  @Column(name = "movie_id", nullable = false)
    // private long movie_id ; 
-    @Column(name = "user_id", nullable = true)
-    private long user_id ; 
-
+  //  @Column(name = "user_id", nullable = true)
+   // private  int user ; 
+ // un film peut étre dans plusieurs favoris
     @ManyToOne
     @JoinColumn
     @JsonIgnoreProperties("favorites")
@@ -36,6 +36,18 @@ public class Favorite {
     public void setMovie(Movie movie) {
         this.movie = movie;
     }
+//un utilisateur peut avoir plusieurs films en favoris
+    @ManyToOne
+    @JoinColumn
+    @JsonIgnoreProperties("favorites")
+    private User user;
+
+    public User getUser() {
+        return this.user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public long getId() {
     	return this.id;
@@ -43,15 +55,16 @@ public class Favorite {
     public void setId(long id) {
     	this.id = id;
     }
-
-
-    public long getUser_id() {
-    	return this.user_id;
-    }
-    public void setUser_id(long user_id) {
-    	this.user_id = user_id;
-    }
 }
+
+
+ //   public int getUser_id() {
+   // 	return this.user_id;
+ //   }
+ //   public void setUser_id(int user_id) {
+    	//this.user = user_id;
+ //   }
+//}
 
 
    // public long getMovie_id() {

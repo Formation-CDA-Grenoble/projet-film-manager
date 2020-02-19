@@ -13,9 +13,9 @@ export default function RouterComp() {
   
     return (
     <Router>
-      <div id = "header">
-        <nav>
-          <ul>
+      <div >
+        <nav >
+          <ul className = "header">
             <li>
               <Link to="/">Home</Link>
             </li>
