@@ -1,7 +1,10 @@
 //léo
-
 package com.tpmil.demo.entity;
+import java.util.Set;
+
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
@@ -19,15 +22,17 @@ public class Genre {
     @Column(name = "name", nullable = false)
     private String name ; 
 
-    
+    @OneToMany(mappedBy = "genre")
+    @JsonIgnoreProperties("genre")
+    private Set<Movie> movies;
 
 
-    // public Set<Movie> getMovies() {
-    // 	return this.movies;
-    // }
-    // public void sets(Set<Movie> movies) {
-    // 	this.movies = movies;
-    // }
+     public Set<Movie> getMovies() {
+     	return this.movies;
+     }
+     public void sets(Set<Movie> movies) {
+     	this.movies = movies;
+}
 
  public long getId() {
  	return this.id;

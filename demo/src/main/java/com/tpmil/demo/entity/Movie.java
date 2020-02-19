@@ -37,8 +37,8 @@ public class Movie {
     private String original_language;
     @Column(name = "popularity", nullable = false)
     private Float popularity;
-    @Column(name = "genre_id", nullable = false)
-    private int genre_id;
+  //  @Column(name = "genre_id", nullable = false)
+   // private int genre_id;
     
    
       @OneToMany(mappedBy = "movie")
@@ -74,11 +74,20 @@ public class Movie {
     public Set<To_watch> getTo_watchs() {
     	return this.to_watchs;
     }
-    public void setProducts(Set<To_watch> to_watchs) {
+    public void setTo_watch(Set<To_watch> to_watchs) {
     	this.to_watchs = to_watchs;
     }
+    @ManyToOne
+    @JoinColumn
+    @JsonIgnoreProperties("movies")
+    private Genre genre;
 
-
+    public Genre getGenre() {
+        return this.genre;
+    }
+    public void setBrand(Genre genre) {
+        this.genre = genre;
+    }
     public long getId() {
         return this.id;
     }
@@ -135,12 +144,12 @@ public class Movie {
     }
 
 
-    public int getGenre_id() {
-        return this.genre_id;
-    }
-    public void setGenre_id(int genre_id) {
-        this.genre_id = genre_id;
-    }
+    //public int getGenre_id() {
+    //    return this.genre_id;
+   // }
+  //  public void setGenre_id(int genre_id) {
+       // this.genre_id = genre_id;
+  //  }
 }
 
 

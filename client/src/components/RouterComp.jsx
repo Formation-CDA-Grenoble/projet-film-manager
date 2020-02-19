@@ -2,13 +2,14 @@
 
 
 import React from "react";
-import Comp1 from './components/Comp1'
+import Comp1 from "./Comp1" ;
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+
 
 export default function RouterComp() {
   
@@ -18,7 +19,7 @@ export default function RouterComp() {
         <nav >
           <ul className = "header">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">home</Link>
             </li>
             <li>
               <Link to="/Favorite">Favorite</Link>
@@ -56,7 +57,9 @@ export default function RouterComp() {
 }
 
 function Favorite() {
-  return <h2>favorite</h2>;
+  return <h2   
+    testProps = "home2"
+    />;
 }
 
 function To_Watch() {
