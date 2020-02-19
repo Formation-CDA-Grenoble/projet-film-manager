@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Comp1 from './components/Comp1'
 import RouterComp from './components/RouterComp'
 
 function App() {
@@ -8,11 +7,6 @@ function App() {
     <div>
       <RouterComp/>
     </div>
-
-    /*<Comp1 
-        h1= "hello world"
-      />*/
-    
   );
 }
 
