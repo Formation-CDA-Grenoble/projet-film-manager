@@ -66,6 +66,19 @@ public class Movie {
         this.favorites = favorites;
     }
 
+    @OneToMany(mappedBy = "movie")
+    @JsonIgnoreProperties("movie")
+    private Set<To_watch> to_watchs;
+
+
+    public Set<To_watch> getTo_watchs() {
+    	return this.to_watchs;
+    }
+    public void setProducts(Set<To_watch> to_watchs) {
+    	this.to_watchs = to_watchs;
+    }
+
+
     public long getId() {
         return this.id;
     }

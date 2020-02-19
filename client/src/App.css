@@ -6,6 +6,7 @@
   outline-color: red;
   flex-direction : row; 
   margin : 1px ; 
-  padding : 1 px ; 
+  padding : 1px ; 
+  justify-content : space-around ; 
 }
 

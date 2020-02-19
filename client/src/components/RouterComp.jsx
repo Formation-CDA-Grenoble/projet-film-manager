@@ -2,6 +2,7 @@
 
 
 import React from "react";
+import Comp1 from './components/Comp1'
 import {
   BrowserRouter as Router,
   Switch,
@@ -63,7 +64,11 @@ function To_Watch() {
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  return <h2>                                           
+            <Comp1 
+                h1= "hello world"
+            />
+        </h2>;
 }
 
 function History() {

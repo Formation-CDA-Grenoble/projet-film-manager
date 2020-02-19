@@ -52,7 +52,7 @@ public class To_watchController {
         To_watch To_watch = this.fetchTo_watch(To_watchId);
         // Remplace toutes ses propriétés par celles de l'objet entrant
         To_watch.setUser_id(newTo_watch.getUser_id());
-        To_watch.setMovie_id(newTo_watch.getMovie_id());
+        To_watch.setMovie(newTo_watch.getMovie());
         
        
         

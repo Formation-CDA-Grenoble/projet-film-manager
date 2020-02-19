@@ -1,7 +1,7 @@
 //léo
 
 package com.tpmil.demo.entity;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -17,10 +17,25 @@ public class To_watch {
     @Column(name = "id", unique = true, nullable = false)
 
     private long id ; 
-    @Column(name = "movie_id", nullable = false)
-    private long movie_id ; 
+    // Cette command , c'estait juste pour tester les liaisons dans 
+    // la base de donnée il faut le commanté quand on fait les relation
+    // dans java
+    //@Column(name = "movie_id", nullable = false)
+    //private long movie_id ; 
     @Column(name = "user_id", nullable = true)
     private long user_id ; 
+
+    @ManyToOne
+    @JoinColumn
+    @JsonIgnoreProperties("to_watchs")
+    private Movie movie;
+
+    public Movie getMovie() {
+        return this.movie;
+    }
+    public void setMovie(Movie movie ) {
+        this.movie = movie;
+    } 
 
  public long getId() {
  	return this.id;
@@ -38,10 +53,10 @@ public class To_watch {
     }
 
 
-    public long getMovie_id() {
-    	return this.movie_id;
-    }
-    public void setMovie_id(long movie_id) {
-    	this.movie_id = movie_id;
-    }
+   //  public long getMovie_id() {
+   //  	return this.movie_id;
+   //  }
+   //  public void setMovie_id(long movie_id) {
+   //  	this.movie_id = movie_id;
+   //  }
    }
