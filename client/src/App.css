@@ -1,9 +1,9 @@
 .header {
   display : flex ; 
-  background-color: rgb(153, 153, 221);
+  background-color: rgb(185, 16, 157);
   border: 1px solid black;
   outline-style: solid;
-  outline-color: red;
+  outline-color: rgb(212, 216, 0);
   flex-direction : row; 
   margin : 1px ; 
   padding : 1px ; 

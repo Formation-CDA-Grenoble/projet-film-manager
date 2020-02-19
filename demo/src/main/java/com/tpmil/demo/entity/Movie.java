@@ -85,8 +85,21 @@ public class Movie {
     public Genre getGenre() {
         return this.genre;
     }
-    public void setBrand(Genre genre) {
+    public void setGenre(Genre genre) {
         this.genre = genre;
+    }
+
+    @OneToMany(mappedBy = "movie")
+    @JsonIgnoreProperties("movie")
+    private Set<History> history;
+
+
+    public Set<History> getHistory() {
+    	return this.history;
+    }
+    public void setHystorys(Set<History> historys) {
+        this.history = historys;
+        
     }
     public long getId() {
         return this.id;

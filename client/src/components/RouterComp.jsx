@@ -57,9 +57,12 @@ export default function RouterComp() {
 }
 
 function Favorite() {
-  return <h2   
-    testProps = "home2"
-    />;
+  return  <Comp1 
+        testProps = "esgd"
+         />
+ 
+   
+  
 }
 
 function To_Watch() {

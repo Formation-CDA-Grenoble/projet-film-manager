@@ -57,7 +57,7 @@ public class MovieController {
         movie.setRelease_date(newMovie.getRelease_date());
         movie.setOriginal_language(newMovie.getOriginal_language());
         movie.setPopularity(newMovie.getPopularity());
-        movie.setGenre_id(newMovie.getGenre_id());
+        movie.setGenre(newMovie.getGenre());
         
         // Sauvegarde le produit en BDD et renvoie une copie
         return movieRepository.save(movie);

@@ -53,7 +53,7 @@ public class HistoryController {
         // Remplace toutes ses propriétés par celles de l'objet entrant
         history.setDate(newhistory.getDate());
         history.setUser_id(newhistory.getUser_id());
-        history.setMovie_id(newhistory.getMovie_id());
+        history.setMovie(newhistory.getMovie());
         
      
         // Sauvegarde le produit en BDD et renvoie une copie

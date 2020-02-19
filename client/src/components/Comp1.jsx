@@ -6,7 +6,8 @@ import React from 'react';
 function Comp1 (props) {
     return (
       <div >
-        <h1>{props.testProps}</h1>
+        <h2> {props.testProps}</h2>
+
       </div>
     );
   }
