@@ -2,7 +2,10 @@
 package com.tpmil.demo.entity;
 
 import java.util.Date;
+import java.util.Set;
+
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
@@ -36,6 +39,19 @@ public class Movie {
     private Float popularity;
     @Column(name = "genre_id", nullable = false)
     private int genre_id;
+    
+    @OneToMany(mappedBy = "movie")
+    @JsonIgnoreProperties("movie")
+    private Set<Comment> comments;
+
+
+    public Set<Comment> getComments() {
+    	return this.comments;
+    }
+    public void sets(Set<Comment> comments) {
+    	this.comments = comments;
+    }
+
 
     public long getId() {
         return this.id;

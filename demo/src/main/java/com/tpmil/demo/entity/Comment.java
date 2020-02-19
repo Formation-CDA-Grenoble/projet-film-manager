@@ -34,7 +34,19 @@ public class Comment {
     @Column(name = "movie_id", nullable = false)
     private long movie_id ; 
     @Column(name = "user_id", nullable = false)
-    private long user_id ; 
+    private long user_id ;
+
+    @ManyToOne
+    @JoinColumn
+    @JsonIgnoreProperties("comments")
+    private Movie movie;
+
+    public Movie getMovie() {
+        return this.movie;
+    }
+    public void setBrand(Movie ) {
+        this.brand = brand;
+    } 
 
 
   public long getId() {
