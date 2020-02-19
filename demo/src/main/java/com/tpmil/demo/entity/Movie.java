@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -14,6 +16,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 // Elle correspond à la table `product`
 @Table(name = "movie")
 @EntityListeners(AuditingEntityListener.class)
+
 public class Movie {
 
     // Cette propriété est la clé primaire de l'entité

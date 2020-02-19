@@ -17,16 +17,23 @@ export default function RouterComp() {
     <Router>
       <div >
         <nav >
+        
           <ul className = "header">
-            <li>
+
+            <button>
               <Link to="/">home</Link>
-            </li>
+            </button>
+
             <li>
               <Link to="/Favorite">Favorite</Link>
             </li>
+
+
             <li>
               <Link to="/To_Watch">To_watch</Link>
             </li>
+
+
             <li>
               <Link to="/History">History</Link>
             </li>

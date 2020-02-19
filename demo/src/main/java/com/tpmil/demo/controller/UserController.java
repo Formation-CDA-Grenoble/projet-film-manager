@@ -46,6 +46,8 @@ public class UserController {
     @ResponseStatus(value = HttpStatus.CREATED)
     public User createUser(@Valid @RequestBody User User) {
         // Sauvegarde le produit en BDD et renvoie une copie 
+
+        User.setPassword(passwordEncoder.encode(User.getPassword()));
         return UserRepository.save(User);
     }
 
@@ -57,7 +59,7 @@ public class UserController {
         // Remplace toutes ses propriétés par celles de l'objet entrant
         User.setUsername(newUser.getUsername());
        User.setMail(newUser.getMail());
-        User.setPassword(newUser.getPassword());
+        User.setPassword(passwordEncoder.encode(newUser.getPassword()));
        
         
         // Sauvegarde le produit en BDD et renvoie une copie

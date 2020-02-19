@@ -1,7 +1,7 @@
 .header {
   display : flex ; 
   background-color: rgb(255, 252, 56);
-  border: 1px solid black;
+  border: 2px solid black;
   outline-style: solid;
   color :rgb(0, 0, 0) ;
   outline-color: rgb(216, 0, 151);
