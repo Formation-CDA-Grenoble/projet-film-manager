@@ -37,6 +37,29 @@ public class User {
     	this.favorites = favorites;
     }
 
+    @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties("user")
+    private Set<History> history;
+
+
+    public Set<History> getHistory() {
+    	return this.history;
+    }
+    public void setHistory(Set<History> history) {
+    	this.history = history;
+    }
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties("user")
+    private Set<Comment> comments;
+
+
+    public Set<Comment> getComments() {
+    	return this.comments;
+    }
+    public void setComments(Set<Comment> comments) {
+    	this.comments = comments;
+    }
 public long getId() {
 	return this.id;
 }

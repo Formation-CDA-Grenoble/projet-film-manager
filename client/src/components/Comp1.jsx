@@ -5,9 +5,10 @@ import React from 'react';
 
 function Comp1 (props) {
     return (
-      <div >
+     
+      <div className = "divi" >
         <h2> {props.testProps}</h2>
-
+        <img src = {props.imgUrlProps}/>
       </div>
     );
   }

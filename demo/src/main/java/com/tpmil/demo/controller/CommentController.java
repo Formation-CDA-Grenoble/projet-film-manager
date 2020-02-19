@@ -53,7 +53,7 @@ public class CommentController {
         // Remplace toutes ses propriétés par celles de l'objet entrant
         Comment.setContent(newComment.getContent());
         Comment.setMovie(newComment.getMovie());
-        Comment.setUser_id(newComment.getUser_id());
+        Comment.setUser(newComment.getUser());
        
         
         // Sauvegarde le produit en BDD et renvoie une copie

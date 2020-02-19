@@ -37,7 +37,7 @@ export default function RouterComp() {
         </nav>
 
 
-        <Switch>
+        <Switch >
           <Route path="/Favorite">
             <Favorite />
           </Route>
@@ -58,21 +58,27 @@ export default function RouterComp() {
 
 function Favorite() {
   return  <Comp1 
-        testProps = "esgd"
-         />
- 
-   
-  
+            testProps = "favorite"
+          />
 }
 
 function To_Watch() {
-  return <h2>To_Watch</h2>;
+  return <Comp1 
+          testProps = "to_watch"
+          imgUrlProps = "https://image.tmdb.org/t/p/w500/qNs0HRSEvSKmtcMiVa2O1yWUKCk.jpg"
+          />
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  return <Comp1 
+          testProps = "Home"
+          
+          />
 }
 
 function History() {
-  return <h2>History</h2>;
+  return <Comp1 
+          testProps = "History"
+          imgUrlProps = "https://image.tmdb.org/t/p/w500/adw6Lq9FiC9zjYEpOqfq03ituwp.jpg"
+          />
 }

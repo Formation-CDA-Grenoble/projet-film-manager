@@ -52,7 +52,7 @@ public class HistoryController {
         History history = this.fetchHistory(historyId);
         // Remplace toutes ses propriétés par celles de l'objet entrant
         history.setDate(newhistory.getDate());
-        history.setUser_id(newhistory.getUser_id());
+        history.setUser(newhistory.getUser());
         history.setMovie(newhistory.getMovie());
         
      

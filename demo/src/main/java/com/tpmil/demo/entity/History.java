@@ -24,12 +24,12 @@ public class History {
     private Date date ; 
    // @Column(name = "movie_id", nullable = false)
   //  private long movie_id ; 
-    @Column(name = "user_id", nullable = true)
-    private long user_id ; 
+  //  @Column(name = "user_id", nullable = true)
+  //  private long user_id ; 
 
     @ManyToOne
     @JoinColumn
-    @JsonIgnoreProperties("historys")
+    @JsonIgnoreProperties("history")
     private Movie movie;
 
     public Movie getMovie() {
@@ -39,7 +39,17 @@ public class History {
         this.movie = movie;
     }
 
-  
+    @ManyToOne
+    @JoinColumn
+    @JsonIgnoreProperties("history")
+    private User user;
+
+    public User getUser() {
+        return this.user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Date getDate() {
       return this.date;
@@ -57,12 +67,12 @@ public class History {
   //  }
 
 
-    public long getUser_id() {
-      return this.user_id;
-    }
-    public void setUser_id(long user_id) {
-      this.user_id = user_id;
-    }
+   // public long getUser_id() {
+    //  return this.user_id;
+  //  }
+  //  public void setUser_id(long user_id) {
+   //   this.user_id = user_id;
+   // }
 
   }
 

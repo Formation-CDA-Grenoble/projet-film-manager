@@ -11,6 +11,7 @@ import com.tpmil.demo.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -23,12 +24,15 @@ import org.springframework.web.server.ResponseStatusException;
 @CrossOrigin
 public class UserController {
 
+
     // Injection de dépendance
     // Une instance de ProductRepository est automatiquement créée
     // et rangée dans cette propriété à la construction du contrôleur
     @Autowired
     private UserRepository UserRepository;
     
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     
     // Renvoie tous les produits de la base de données
     @GetMapping("")
