@@ -52,7 +52,7 @@ public class FavoriteController {
         Favorite Favorite = this.fetchFavorite(FavoriteId);
         // Remplace toutes ses propriétés par celles de l'objet entrant
         Favorite.setUser_id(newFavorite.getUser_id());
-        Favorite.setMovie_id(newFavorite.getMovie_id());
+        Favorite.setMovie(newFavorite.getMovie());
         
        
         

@@ -1,9 +1,6 @@
 //léo
 
 package com.tpmil.demo.entity;
-
-
-
 import javax.persistence.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -21,6 +18,16 @@ public class Genre {
     private long id ; 
     @Column(name = "name", nullable = false)
     private String name ; 
+
+    
+
+
+    // public Set<Movie> getMovies() {
+    // 	return this.movies;
+    // }
+    // public void sets(Set<Movie> movies) {
+    // 	this.movies = movies;
+    // }
 
  public long getId() {
  	return this.id;

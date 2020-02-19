@@ -3,6 +3,9 @@
 package com.tpmil.demo.entity;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
@@ -17,10 +20,22 @@ public class Favorite {
     @Column(name = "id", unique = true, nullable = false)
     private long id ;
 
-    @Column(name = "movie_id", nullable = false)
-    private long movie_id ; 
+  //  @Column(name = "movie_id", nullable = false)
+   // private long movie_id ; 
     @Column(name = "user_id", nullable = true)
     private long user_id ; 
+
+    @ManyToOne
+    @JoinColumn
+    @JsonIgnoreProperties("favorites")
+    private Movie movie;
+
+    public Movie getMovie() {
+        return this.movie;
+    }
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
 
     public long getId() {
     	return this.id;
@@ -36,12 +51,13 @@ public class Favorite {
     public void setUser_id(long user_id) {
     	this.user_id = user_id;
     }
-
-
-    public long getMovie_id() {
-    	return this.movie_id;
-    }
-    public void setMovie_id(long movie_id) {
-    	this.movie_id = movie_id;
-    }
 }
+
+
+   // public long getMovie_id() {
+    //	return this.movie_id;
+    //}
+  //  public void setMovie_id(long movie_id) {
+    //	this.movie_id = movie_id;
+ //   }
+

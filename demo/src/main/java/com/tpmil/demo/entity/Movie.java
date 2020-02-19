@@ -40,18 +40,31 @@ public class Movie {
     @Column(name = "genre_id", nullable = false)
     private int genre_id;
     
+   
+      @OneToMany(mappedBy = "movie")
+     @JsonIgnoreProperties("movie")
+     private Set<Comment> comments;
+
+
+     public Set<Comment> getComments() {
+     	return this.comments;
+     }
+     public void set(Set<Comment> comments) {
+         this.comments = comments;
+     }
+    
+    
     @OneToMany(mappedBy = "movie")
     @JsonIgnoreProperties("movie")
-    private Set<Comment> comments;
+    private Set<Favorite> favorites;
 
 
-    public Set<Comment> getComments() {
-    	return this.comments;
+    public Set<Favorite> getFavorites() {
+    	return this.favorites;
     }
-    public void sets(Set<Comment> comments) {
-    	this.comments = comments;
+    public void sets(Set<Favorite> favorites) {
+        this.favorites = favorites;
     }
-
 
     public long getId() {
         return this.id;

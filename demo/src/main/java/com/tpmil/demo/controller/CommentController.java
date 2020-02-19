@@ -52,7 +52,7 @@ public class CommentController {
         Comment Comment = this.fetchComment(CommentId);
         // Remplace toutes ses propriétés par celles de l'objet entrant
         Comment.setContent(newComment.getContent());
-        Comment.setMovie_id(newComment.getMovie_id());
+        Comment.setMovie(newComment.getMovie());
         Comment.setUser_id(newComment.getUser_id());
        
         

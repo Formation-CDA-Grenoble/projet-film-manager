@@ -2,16 +2,8 @@
 
 
 package com.tpmil.demo.entity;
-/*
 
-import inutiles pour l'instant
-
-import java.util.Date;
-import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.tpmil.demo.entity.*;
-*/
-
 
 import javax.persistence.*;
 
@@ -31,8 +23,8 @@ public class Comment {
     private long id ;
     @Column(name = "content", nullable = false)
     private String content;
-    @Column(name = "movie_id", nullable = false)
-    private long movie_id ; 
+  // @Column(name = "movie_id", nullable = false)
+   // private long movie_id ; 
     @Column(name = "user_id", nullable = false)
     private long user_id ;
 
@@ -44,8 +36,8 @@ public class Comment {
     public Movie getMovie() {
         return this.movie;
     }
-    public void setBrand(Movie ) {
-        this.brand = brand;
+    public void setMovie(Movie movie ) {
+        this.movie = movie;
     } 
 
 
@@ -63,14 +55,9 @@ public class Comment {
     public void setContent(String content) {
     	this.content = content;
     }
-
-
-    public long getMovie_id() {
-    	return this.movie_id;
-    }
-    public void setMovie_id(long movie_id) {
-    	this.movie_id = movie_id;
-    }
+  //  public void setMovie(Movie movie) {
+   //	this.movie = movie;
+    //}
 
 
     public long getUser_id() {
