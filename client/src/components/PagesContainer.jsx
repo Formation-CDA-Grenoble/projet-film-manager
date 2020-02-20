@@ -1,9 +1,10 @@
 // ce composant est juste un test de props
+//non en fait maintenant c'est le composant de history a voir et favoris
 
 import React from 'react';
 
 
-function Comp1 (props) {
+function PagesContainer (props) {
     return (
      
       <div className = "divi" >
@@ -14,5 +15,5 @@ function Comp1 (props) {
     );
   }
   
-  export default Comp1;
+  export default PagesContainer;
   

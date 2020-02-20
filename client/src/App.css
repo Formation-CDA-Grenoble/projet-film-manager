@@ -12,11 +12,32 @@
 }
 
 .divi {
-display : flex ; 
-background-color: rgb(179, 49, 157);
-justify-content : center ; 
-flex-direction : column ; 
-align-items :  center ; 
+  display : flex ; 
+  background-color: rgb(179, 49, 157);
+  justify-content : center ; 
+  flex-direction : column ; 
+  align-items :  center ; 
 
 }
 
+.homi {
+  margin : 0px ; 
+  padding: 2px;
+  padding-left: 15px;
+  background-color : blueviolet ;
+  display: flex; 
+  flex-direction : column ; 
+
+
+}
+
+.filmi {
+background-color: aquamarine;
+margin : 0px ; 
+padding: 2px;
+padding-left: 15px;
+display : flex ; 
+justify-content : center ; 
+  flex-direction : column ; 
+  align-items :  center ;
+}
