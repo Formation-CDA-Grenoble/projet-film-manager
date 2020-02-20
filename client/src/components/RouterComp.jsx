@@ -85,7 +85,11 @@ function Home() {
 
 function Films() {
   return (
-    <FilmsList/>
+    <div>
+      <FilmsList/>
+      <FilmsPage/>
+    </div>
+   
 
   )
 }
