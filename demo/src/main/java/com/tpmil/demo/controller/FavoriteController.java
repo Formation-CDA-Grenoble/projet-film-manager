@@ -3,6 +3,7 @@
 package com.tpmil.demo.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -34,8 +35,8 @@ public class FavoriteController {
     
     // Renvoie tous les produits de la base de données
     @GetMapping("")
-    public List<Favorite> getAllFavorite() {
-        return FavoriteRepository.findAll();
+    public Set<Favorite> getAllFavorite() {
+        return (Set<Favorite>) FavoriteRepository.findAll();
     }
 
     // Crée un nouveau produit

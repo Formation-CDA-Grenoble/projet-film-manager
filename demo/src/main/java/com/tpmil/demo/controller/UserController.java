@@ -6,9 +6,11 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.tpmil.demo.entity.Movie;
 import com.tpmil.demo.entity.User;
-
 import com.tpmil.demo.repository.UserRepository;
+import com.tpmil.demo.repository.MovieRepository;
+import com.tpmil.demo.repository.FavoriteRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,13 +25,16 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping("/api/users")
 // Ce contrôleur accepte les requêtes venant d'un serveur différent
 @CrossOrigin
-public class UserController {
+public class UserController{
     // Injection de dépendance
     // Une instance de ProductRepository est automatiquement créée
     // et rangée dans cette propriété à la construction du contrôleur
     @Autowired
     private UserRepository UserRepository;
-    
+    @Autowired
+    private MovieRepository MovieRepository;
+    @Autowired
+    private FavoriteRepository FavoriteRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
     
@@ -83,6 +88,27 @@ public class UserController {
             () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found")
         );
         UserRepository.deleteById(id);
+
+    }
+    @GetMapping("/{userId}/addFavorite/{movieId}")
+    public User addFavorite(
+        @PathVariable(value = "movieId") Long movieId,
+        @PathVariable(value = "userId") Long userId
+    ) {
+        User user = this.fetchUser(movieId);
+      
+        Movie movie =MovieRepository.findById(
+                userId)
+                .orElseThrow(
+            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie not found")
+        );
+
+        if (User.getFavorites().contains(movie)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Movie already present in favorite");
+        }
+
+        User.getUser().add(movie);
+        return UserRepository.save(user);
     }
 //
 //

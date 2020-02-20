@@ -24,8 +24,7 @@ import org.springframework.web.server.ResponseStatusException;
 // Ce contrôleur accepte les requêtes venant d'un serveur différent
 @CrossOrigin
 public class MovieController {
-    @Autowired
-    private FavoriteRepository favoriteRepository;
+
 
     // Injection de dépendance
     // Une instance de ProductRepository est automatiquement créée
@@ -83,25 +82,7 @@ public class MovieController {
         );
         movieRepository.deleteById(id);
     }
-    @GetMapping("/{movieId}/addFavorite/{favoriteId}")
-    public Movie addFavorite(
-        @PathVariable(value = "movieId") Long movieId,
-        @PathVariable(value = "favoriteId") Long favoriteId
-    ) {
-        Movie movie = this.fetchMovie(movieId);
-      
-        Favorite favorite = favoriteRepository.findById( favoriteId)
-                .orElseThrow(
-            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Favorite not found")
-        );
-
-        if (Movie.getFavorites().contains(favorite)) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Movie already present in order");
-        }
-
-        Movie.getFavorites().add(favorite);
-        return movieRepository.save(movie);
-    }
+   
 //
     // Méthode réutilisable permettant d'aller chercher un produit dans la BDD en fonction de son id
     // Renvoie automatiquement une erreur 404 si le produit n'existe pas
