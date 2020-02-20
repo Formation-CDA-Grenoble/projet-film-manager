@@ -27,6 +27,7 @@ public class Genre {
     private String name ; 
 
     @OneToMany(mappedBy = "genre")
+    @JsonIgnoreProperties("genre")
     @JsonBackReference
     private List<Movie> movies;
 

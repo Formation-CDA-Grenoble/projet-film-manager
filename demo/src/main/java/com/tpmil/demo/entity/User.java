@@ -38,7 +38,7 @@ public class User {
     public List<Favorite> getFavorites() {
     	return this.favorites;
     }
-    public void lisFavorites(List<Favorite> favorites) {
+    public void setFavorites(List<Favorite> favorites) {
     	this.favorites = favorites;
     }
 

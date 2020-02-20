@@ -56,6 +56,10 @@ public class Favorite {
     public void setId(long id) {
     	this.id = id;
     }
+    public String toString(){
+
+      return this.getUser().getUsername()+this.getMovie().getOriginal_title()+"  Id : "+this.getId();
+    }
 }
 
 
