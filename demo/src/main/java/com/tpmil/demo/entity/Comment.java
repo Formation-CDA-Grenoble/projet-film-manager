@@ -2,6 +2,7 @@
 
 package com.tpmil.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonMerge;
 
@@ -31,6 +32,7 @@ public class Comment {
     @ManyToOne
     @JoinColumn
     @JsonIgnoreProperties("comments")
+    @JsonBackReference
     private Movie movie;
 
     public Movie getMovie() {

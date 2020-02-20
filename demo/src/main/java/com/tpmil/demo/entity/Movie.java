@@ -6,8 +6,10 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
@@ -46,6 +48,8 @@ public class Movie {
    
       @OneToMany(mappedBy = "movie")
      @JsonIgnoreProperties("movie")
+     @JsonManagedReference
+     
      private Set<Comment> comments;
 
 
