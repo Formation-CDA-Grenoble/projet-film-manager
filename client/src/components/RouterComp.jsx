@@ -74,8 +74,7 @@ export default function RouterComp() {
 function Home() {
   return  (
   <div>
-          <HomePage />
-          
+          <HomePage />  
   </div>
    
   )
@@ -97,6 +96,7 @@ function Films() {
 function Favorite() {
   return  <PagesContainer 
             testProps = "favorite"
+            imgUrlProps = "https://image.tmdb.org/t/p/w500//sh6Kn8VBfXotJ6qsvJkdfscxXKR.jpg"
           />
           
 }
