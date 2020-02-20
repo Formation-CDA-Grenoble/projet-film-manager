@@ -1,7 +1,10 @@
 //léo
 
 package com.tpmil.demo.entity;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -28,6 +31,7 @@ public class To_watch {
     @ManyToOne
     @JoinColumn
     @JsonIgnoreProperties("to_watchs")
+    @JsonManagedReference
     private Movie movie;
 
     public Movie getMovie() {

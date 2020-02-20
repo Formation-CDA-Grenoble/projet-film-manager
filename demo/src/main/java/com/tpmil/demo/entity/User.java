@@ -1,8 +1,12 @@
 //léo
 
 package com.tpmil.demo.entity;
+
+import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -27,13 +31,14 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     @JsonIgnoreProperties("user")
-    private Set<Favorite> favorites;
+    @JsonBackReference
+    private List<Favorite> favorites;
 
 
-    public Set<Favorite> getFavorites() {
+    public List<Favorite> getFavorites() {
     	return this.favorites;
     }
-    public void setFavorites(Set<Favorite> favorites) {
+    public void lisFavorites(List<Favorite> favorites) {
     	this.favorites = favorites;
     }
 

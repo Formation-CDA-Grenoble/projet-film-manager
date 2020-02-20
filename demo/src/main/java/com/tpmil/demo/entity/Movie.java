@@ -60,7 +60,7 @@ public class Movie {
 
     @OneToMany(mappedBy = "movie")
     @JsonIgnoreProperties("movie")
-    @JsonManagedReference
+    @JsonBackReference
     private List<Favorite> favorites;
 
 
