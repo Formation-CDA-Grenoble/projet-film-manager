@@ -30,7 +30,7 @@ public class UserController {
     // et rangée dans cette propriété à la construction du contrôleur
     @Autowired
     private UserRepository UserRepository;
-    
+
     @Autowired
     private PasswordEncoder passwordEncoder;
     
