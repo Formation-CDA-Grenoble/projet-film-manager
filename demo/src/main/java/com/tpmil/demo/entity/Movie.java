@@ -46,20 +46,18 @@ public class Movie {
     // private int genre_id;
 
     @OneToMany(mappedBy = "movie")
-    @JsonIgnoreProperties("movie")
+    @JsonBackReference
+     private List<Comment> comments;
 
-    private Set<Comment> comments;
-
-    public Set<Comment> getComments() {
+    public List<Comment> getComments() {
         return this.comments;
     }
 
-    public void set(Set<Comment> comments) {
+    public void set(List<Comment> comments) {
         this.comments = comments;
     }
 
     @OneToMany(mappedBy = "movie")
-    @JsonIgnoreProperties("movie")
     @JsonBackReference
     private List<Favorite> favorites;
 
@@ -72,19 +70,19 @@ public class Movie {
     }
 
     @OneToMany(mappedBy = "movie")
-    @JsonIgnoreProperties("movie")
-    private Set<To_watch> to_watchs;
+    @JsonBackReference
+    private List<To_watch> to_watchs;
 
 
-    public Set<To_watch> getTo_watchs() {
+    public List<To_watch> getTo_watchs() {
     	return this.to_watchs;
     }
-    public void setTo_watch(Set<To_watch> to_watchs) {
+    public void setTo_watch(List<To_watch> to_watchs) {
     	this.to_watchs = to_watchs;
     }
     @ManyToOne
     @JoinColumn
-    @JsonIgnoreProperties("movies")
+    @JsonManagedReference
     private Genre genre;
 
     public Genre getGenre() {
@@ -95,14 +93,14 @@ public class Movie {
     }
 
     @OneToMany(mappedBy = "movie")
-    @JsonIgnoreProperties("movie")
-    private Set<History> history;
+    @JsonBackReference
+    private List<History> history;
 
 
-    public Set<History> getHistory() {
+    public List<History> getHistory() {
     	return this.history;
     }
-    public void setHystorys(Set<History> historys) {
+    public void setHistory(List<History> historys) {
         this.history = historys;
         
     }

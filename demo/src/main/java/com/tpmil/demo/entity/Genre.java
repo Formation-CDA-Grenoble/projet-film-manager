@@ -27,7 +27,6 @@ public class Genre {
     private String name ; 
 
     @OneToMany(mappedBy = "genre")
-    @JsonIgnoreProperties("genre")
     @JsonBackReference
     private List<Movie> movies;
 
@@ -35,7 +34,7 @@ public class Genre {
      public List<Movie> getMovies() {
      	return this.movies;
      }
-     public void sets(Set<Movie> movies) {
+     public void set(List<Movie> movies) {
      	this.movies = movies;
 }
 

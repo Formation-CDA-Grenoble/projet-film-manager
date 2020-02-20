@@ -4,7 +4,7 @@ package com.tpmil.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -31,8 +31,7 @@ public class Comment {
    
     @ManyToOne
     @JoinColumn
-    @JsonIgnoreProperties("comments")
-    @JsonBackReference
+    @JsonManagedReference
     private Movie movie;
 
     public Movie getMovie() {
@@ -44,7 +43,7 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn
-    @JsonIgnoreProperties("comments")
+    @JsonManagedReference
     private User user;
 
     public User getUser() {

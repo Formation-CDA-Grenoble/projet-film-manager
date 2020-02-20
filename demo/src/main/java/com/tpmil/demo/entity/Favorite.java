@@ -28,7 +28,6 @@ public class Favorite {
  // un film peut étre dans plusieurs favoris
     @ManyToOne
     @JoinColumn
-    @JsonIgnoreProperties("favorites")
     @JsonManagedReference
     private Movie movie;
 

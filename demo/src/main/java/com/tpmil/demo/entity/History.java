@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -29,7 +30,6 @@ public class History {
 
     @ManyToOne
     @JoinColumn
-    @JsonIgnoreProperties("history")
     @JsonManagedReference
     private Movie movie;
 
@@ -42,7 +42,7 @@ public class History {
 
     @ManyToOne
     @JoinColumn
-    @JsonIgnoreProperties("history")
+    @JsonManagedReference
     private User user;
 
     public User getUser() {
