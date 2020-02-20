@@ -7,6 +7,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import com.tpmil.demo.entity.User;
+
 import com.tpmil.demo.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,6 @@ import org.springframework.web.server.ResponseStatusException;
 // Ce contrôleur accepte les requêtes venant d'un serveur différent
 @CrossOrigin
 public class UserController {
-
-
     // Injection de dépendance
     // Une instance de ProductRepository est automatiquement créée
     // et rangée dans cette propriété à la construction du contrôleur

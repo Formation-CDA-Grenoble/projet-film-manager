@@ -11,5 +11,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FavoriteRepository extends JpaRepository<Favorite, Long> {
-    public List<Favorite> findAll();
+    public default List<Favorite> findAll() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

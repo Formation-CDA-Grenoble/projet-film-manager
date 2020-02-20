@@ -35,7 +35,7 @@ public class Genre {
      public List<Movie> getMovies() {
      	return this.movies;
      }
-     public void sets(Set<Movie> movies) {
+     public void set(Set<Movie> movies) {
      	this.movies = movies;
 }
 

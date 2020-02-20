@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import com.tpmil.demo.entity.Favorite;
 import com.tpmil.demo.repository.FavoriteRepository;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,7 @@ public class FavoriteController {
     // et rangée dans cette propriété à la construction du contrôleur
     @Autowired
     private FavoriteRepository FavoriteRepository;
+    
     
     
     // Renvoie tous les produits de la base de données
@@ -66,7 +68,7 @@ public class FavoriteController {
 
     // Renvoie un produit particulier de la base de données (en fonction de son id)
     @GetMapping("/{id}")
-    public Favorite getProductById(@PathVariable(value = "id") Long FavoriteId) {
+    public Favorite getFavoriteById(@PathVariable(value = "id") Long FavoriteId) {
         return this.fetchProduct(FavoriteId);
     }
 
