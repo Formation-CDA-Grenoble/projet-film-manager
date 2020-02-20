@@ -2,16 +2,15 @@
 package com.tpmil.demo.entity;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
 
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 
 // Cette classe est une entité de la BDD
 @Entity
@@ -42,31 +41,32 @@ public class Movie {
     private String original_language;
     @Column(name = "popularity", nullable = false)
     private Float popularity;
-  //  @Column(name = "genre_id", nullable = false)
-   // private int genre_id;
-    
-   
-      @OneToMany(mappedBy = "movie")
-     @JsonIgnoreProperties("movie")
-     
-      private Set<Comment> comments;
-     public Set<Comment> getComments() {
-     	return this.comments;
-     }
-     public void set(Set<Comment> comments) {
-         this.comments = comments;
-     }
-    
-    
+    // @Column(name = "genre_id", nullable = false)
+    // private int genre_id;
+
     @OneToMany(mappedBy = "movie")
     @JsonIgnoreProperties("movie")
-    private Set<Favorite> favorites;
+
+    private Set<Comment> comments;
+
+    public Set<Comment> getComments() {
+        return this.comments;
+    }
+
+    public void set(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
+    @OneToMany(mappedBy = "movie")
+    @JsonIgnoreProperties("movie")
+    @JsonBackReference
+    private List<Favorite> favorites;
 
 
-    public Set<Favorite> getFavorites() {
+    public List<Favorite> getFavorites() {
     	return this.favorites;
     }
-    public void sets(Set<Favorite> favorites) {
+    public void List(List<Favorite> favorites) {
         this.favorites = favorites;
     }
 

@@ -5,6 +5,7 @@ package com.tpmil.demo.entity;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -28,6 +29,7 @@ public class Favorite {
     @ManyToOne
     @JoinColumn
     @JsonIgnoreProperties("favorites")
+    @JsonManagedReference
     private Movie movie;
 
     public Movie getMovie() {

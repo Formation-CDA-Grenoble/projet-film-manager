@@ -1,4 +1,0 @@
-spring:
-  jpa:
-    properties:
-       hibernate.max_fetch_depth: 1 
