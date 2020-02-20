@@ -1,9 +1,9 @@
 //léo
 
-
 package com.tpmil.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonMerge;
 
 import javax.persistence.*;
 
@@ -27,7 +27,7 @@ public class Comment {
    // private long movie_id ; 
   //  @Column(name = "user_id", nullable = false)
    // private long user_id ;
-
+   @JsonMerge
     @ManyToOne
     @JoinColumn
     @JsonIgnoreProperties("comments")
