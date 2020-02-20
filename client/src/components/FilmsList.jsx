@@ -1,36 +1,83 @@
+
 import React from 'react';
 
 import axios from 'axios';
 
-export default class FilmsList extends React.Component {
+export default class PersonList extends React.Component {
   state = {
-    films: []
+    persons: []
   }
 
   componentDidMount() {
-    axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=a7c17a12a5daad78663eaf3ff41d61d8&language=en-US`)
+    axios.get(`https://jsonplaceholder.typicode.com/users`)
       .then(res => {
-        const films = res.data;
-        this.setState({ films });
+        const persons = res.data;
+        this.setState({ persons });
       })
   }
 
-  render = () => {
-   
-   
-    if (this.state === null) {
-        return <div>fsdfsfs</div> ;
-      }
-   
+  render() {
     return (
-        
       <ul>
-        {/* { this.state.films.map(film => <li>{film.name}</li>)} */}
-         {console.log (this.state.films.genres)}
-          {/* <li>{this.state[0]}</li>) */}
+        { this.state.persons.map(person => <li>{person.name}</li>)}
       </ul>
-     
-      //.films.genres[0]
     )
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+// import React from 'react';
+
+// import axios from 'axios';
+
+// export default class FilmsList extends React.Component {
+//   state = {
+//     films: [] ,
+//     errorMessage: null
+//   }
+
+//   componentDidMount() {
+//     axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=a7c17a12a5daad78663eaf3ff41d61d8&language=en-US`)
+//       .then(res => {
+//         const films = res.data;
+//         this.setState({ films });
+//       })
+//       .catch(error => {
+//         this.setState({ errorMessage: error.message });
+//       });
+//   }
+
+//   render = () => {
+   
+//     const { data } = this.state;
+//     if (data === null) {
+//         return <div>fait chier.</div> ;
+//       }
+//       let test[] = {this.state.films.genres.map} ; 
+//     return (
+
+//       <ul>
+//           test 
+       
+          
+//       </ul>
+
+
+//         /* {console.log (this.state.films.genres)} */
+     
+//         /* { this.state.films.map(film => <li>{film.name}</li>)} */
+         
+//         /* <li>{this.state[0]}</li>) */
+//          //.films.genres[0]
+//     )
+//   }
+// }
