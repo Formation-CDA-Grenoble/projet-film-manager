@@ -38,7 +38,7 @@ public class UserController {
     @Autowired
     private MovieRepository MovieRepository;
     @Autowired
-    private FavoriteRepository FavoriteRepository;
+    private FavoriteRepository favoriteRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -96,28 +96,32 @@ public class UserController {
 
 
     @GetMapping("/{userId}/addFavorites/{movieId}")
-    public User addFavorite(
+    public Favorite addFavorite(
         @PathVariable(value = "movieId") Long movieId,
         @PathVariable(value = "userId") Long userId
     ) {
+        // on recupere l'user qui fait a demande de favorie
         User user = this.fetchUser(userId);
-      
+      // on test si le movie existe
         Movie movie =MovieRepository.findById(
                 movieId)
                 .orElseThrow(
             () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie not found")
         );
+
+        //on creez un nouveau favorie.
         Favorite favorite = new Favorite();
+        // on lui donne les propriété du film a mettre en favorie et l'utilisateur qui met en favorie
         favorite.setMovie(movie);
         favorite.setUser(user);
         
-        if (user.getFavorites().contains(favorite)) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Movie already present in favorite");
-        }
-        System.out.println(favorite.toString());
-        user.getFavorites().add(favorite);
-       
-        return UserRepository.save(user);
+        //TODO repository qui test si il existe un favorie avec user et movie en commun
+        // if (user.getFavorites().contains(favorite)) {
+        //     throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Movie already present in favorite");
+        // }
+
+       // on sauvegarde le favorie dans la liste de favoris
+        return favoriteRepository.save(favorite);
     }
 //
 //
