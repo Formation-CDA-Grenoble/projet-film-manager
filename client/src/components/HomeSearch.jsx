@@ -22,7 +22,7 @@ function HomeSearch (props) {
     
   return (
      <nav >
-        <div   >
+        <div className = "homiSearchi"  >
          
           <input type="text" /> 
          

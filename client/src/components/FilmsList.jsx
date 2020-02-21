@@ -3,40 +3,55 @@ import React from 'react';
 
 import axios from 'axios';
 
-export default class PersonList extends React.Component {
+export default class FilmsList extends React.Component {
   state = {
-    persons: []
+    films: []
   }
 
   componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
+    axios.get(`http://localhost:8080/api/movies/${id}/favorite`)
       .then(res => {
-        const persons = res.data;
-        this.setState({ persons });
+        const films = res.data;
+        this.setState({ films });
       })
   }
 }
 
-// favorite = async () => {
-//   const id = this.props.match.params.id;
-//   try {
-//     const response = await Axios.post(`http://localhost:8080/api/movies/${id}/favorite`);
-//     const favoris = response.data;
-//     const { data } = this.state;
-//     this.setState({ data: {...data, favorite} })
-//   }
-//   catch(error) {
-//     this.setState({ errorMessage: error.message });
-//   }
-//   render() 
-//     return (
-//       <ul>
-//         { this.state.persons.map(person => <li>{person.name}</li>)}
-//       </ul>
-//     )
-//   }
+    favorite = async () => {
+      const id = this.props.match.params.id;
+      try {
+        const response = await Axios.post(`http://localhost:8080/api/movies/${id}/favorite`);
+        const favorite = response.data;
+        const { data } = this.state;
+        this.setState({ data: {...data, favorite} })
+      }
+      catch(error) {
+        this.setState({ errorMessage: error.message });
+      }
+      render() 
+        return (
+       <ul>
+         { this.state.films.map(films => <li>{films.name}</li>)}
+      </ul>
+    )
+  }
 
 
+  if (errorMessage) {
+    return (
+      <Layout>
+        {errorMessage}
+      </Layout>
+    );
+  }
+
+  if (data === null) {
+    return <FilmsListLoader />;
+  }
+
+  return (
+    <FilmsList {...data} favorite={this.favorite} />
+  );
 
 
 
