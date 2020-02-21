@@ -15,15 +15,27 @@ export default class PersonList extends React.Component {
         this.setState({ persons });
       })
   }
-
-  render() {
-    return (
-      <ul>
-        { this.state.persons.map(person => <li>{person.name}</li>)}
-      </ul>
-    )
-  }
 }
+
+// favorite = async () => {
+//   const id = this.props.match.params.id;
+//   try {
+//     const response = await Axios.post(`http://localhost:8080/api/movies/${id}/favorite`);
+//     const favoris = response.data;
+//     const { data } = this.state;
+//     this.setState({ data: {...data, favorite} })
+//   }
+//   catch(error) {
+//     this.setState({ errorMessage: error.message });
+//   }
+//   render() 
+//     return (
+//       <ul>
+//         { this.state.persons.map(person => <li>{person.name}</li>)}
+//       </ul>
+//     )
+//   }
+
 
 
 

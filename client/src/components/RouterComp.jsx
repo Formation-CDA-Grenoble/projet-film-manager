@@ -74,7 +74,7 @@ export default function RouterComp() {
 function Home() {
   return  (
   <div>
-          <HomeSearch/>
+          <HomeSearch />
           <HomePage />  
        
   </div>
