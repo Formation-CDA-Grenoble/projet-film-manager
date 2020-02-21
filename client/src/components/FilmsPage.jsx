@@ -4,32 +4,44 @@ import reactDom  from 'react-dom';
 // import { articles } from '../data';
 import Button from 'react-bootstrap/Button';
 
+
 // export default class FilmsPage extends Component {
 //   constructor(props) {
 //     super(props);
 //     this.state = {} ; 
 
+//         const FilmsPage = ({}) => {
+
           
 //     function AddFavorite (props) {
         
-//                 return (
-//                   <button onClick={props.onClick}>
-//                     Ajouter aux favoris
-//                   </button>
+                // return (
+                //   <Button onClick={props.onClick}>
+                //     Ajouter aux favoris
+                //   </Button>
 
                 
     
     
 
 
-    function FilmsPage ()  {
-      return (
-      <div >
-         <Button  variant="secondary" >  Ajouter aux favoris </Button>
+    function FilmsPage (props) {
+        return (
+                <Button onClick={props.onClick}>
+                  Ajouter aux favoris
+                </Button>
+        
+//       return (
+//       <div >
+//          <Button  variant="secondary" >  Ajouter aux favoris </Button>
          
-      </div>
-      )
-                }
+//       </div>
+     
+                )
+    }
+
+
+
       export default FilmsPage;
 
 

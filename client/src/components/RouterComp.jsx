@@ -6,6 +6,7 @@ import FilmsList from "./FilmsList.jsx" ;
 import FilmsPage from "./FilmsPage" ;
 import HomeSearch from "./HomeSearch" ; 
 import Button from 'react-bootstrap/Button';
+import LoginComponent from './LoginComponent'
 import {
   BrowserRouter as Router,
   Switch,
@@ -66,6 +67,9 @@ export default function RouterComp() {
            <Route exact path="/">
             <Home />
           </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
           <Route exact path="/films/1">
             <Films />
           </Route>
@@ -124,5 +128,8 @@ function History() {
           />
 }
 
+function Login() {
+  return <LoginComponent/>
+}
 
 
