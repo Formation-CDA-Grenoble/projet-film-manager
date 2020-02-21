@@ -2,10 +2,10 @@
 import React from "react";
 import PagesContainer from "./PagesContainer.jsx" ;
 import HomePage from "./HomePage.jsx" ;
-import FilmsPage from "./FilmsPage.jsx" ;
 import FilmsList from "./FilmsList.jsx" ;
+import FilmsPage from "./FilmsPage" ;
 import HomeSearch from "./HomeSearch" ; 
-
+import Button from 'react-bootstrap/Button';
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,10 +23,11 @@ export default function RouterComp() {
         <nav >
         
           <ul className = "header">
-
-            <button>
-              <Link to="/">Home</Link>
-            </button>
+          
+            
+            <Button variant="outline-secondary" size="lg">
+            <Link to="/">Home</Link>
+           </Button>
 
             <li>
               <Link to="/Favorite">Favorite</Link>
@@ -40,6 +41,11 @@ export default function RouterComp() {
 
             <li>
               <Link to="/History">History</Link>
+            </li>
+
+            
+            <li>
+              <Link to="/Listory">Login</Link>
             </li>
             
 
