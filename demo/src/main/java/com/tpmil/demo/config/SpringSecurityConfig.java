@@ -38,15 +38,15 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 
 	// Désactivé la sécurité pour test
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
-	}
+    // @Override
+    // protected void configure(HttpSecurity http) throws Exception {
+    //     http.csrf().disable();
+	// }
 	
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-    return new BCryptPasswordEncoder();
-}
+// 	@Bean
+// 	public PasswordEncoder passwordEncoder() {
+//     return new BCryptPasswordEncoder();
+// }
 
 	// @Override
 	// protected void configure(HttpSecurity http) throws Exception {
