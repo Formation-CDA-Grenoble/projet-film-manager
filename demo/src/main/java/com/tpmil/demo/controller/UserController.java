@@ -6,8 +6,14 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.tpmil.demo.entity.Favorite;
+
+import com.tpmil.demo.entity.Movie;
 import com.tpmil.demo.entity.User;
+import com.tpmil.demo.repository.MovieRepository;
 import com.tpmil.demo.repository.UserRepository;
+
+import com.tpmil.demo.repository.FavoriteRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,13 +29,16 @@ import org.springframework.web.server.ResponseStatusException;
 // Ce contrôleur accepte les requêtes venant d'un serveur différent
 @CrossOrigin
 public class UserController {
-
-
     // Injection de dépendance
     // Une instance de ProductRepository est automatiquement créée
     // et rangée dans cette propriété à la construction du contrôleur
     @Autowired
     private UserRepository UserRepository;
+
+    @Autowired
+    private MovieRepository MovieRepository;
+    @Autowired
+    private FavoriteRepository favoriteRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -66,14 +75,12 @@ public class UserController {
         return UserRepository.save(User);
     }
 
-    private User fetchUser(Long UserId) {
-        return null;
-    }
+
 
     // Renvoie un produit particulier de la base de données (en fonction de son id)
     @GetMapping("/{id}")
-    public User getProductById(@PathVariable(value = "id") Long UserId) {
-        return this.fetchProduct(UserId);
+    public User getUserById(@PathVariable(value = "id") Long UserId) {
+        return this.fetchUser(UserId);
     }
 
   
@@ -84,12 +91,43 @@ public class UserController {
             () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found")
         );
         UserRepository.deleteById(id);
+
+    }
+
+
+    @GetMapping("/{userId}/addFavorites/{movieId}")
+    public Favorite addFavorite(
+        @PathVariable(value = "movieId") Long movieId,
+        @PathVariable(value = "userId") Long userId
+    ) {
+        // on recupere l'user qui fait a demande de favorie
+        User user = this.fetchUser(userId);
+      // on test si le movie existe
+        Movie movie =MovieRepository.findById(
+                movieId)
+                .orElseThrow(
+            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie not found")
+        );
+
+        //on creez un nouveau favorie.
+        Favorite favorite = new Favorite();
+        // on lui donne les propriété du film a mettre en favorie et l'utilisateur qui met en favorie
+        favorite.setMovie(movie);
+        favorite.setUser(user);
+        
+        //TODO repository qui test si il existe un favorie avec user et movie en commun
+        // if (user.getFavorites().contains(favorite)) {
+        //     throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Movie already present in favorite");
+        // }
+
+       // on sauvegarde le favorie dans la liste de favoris
+        return favoriteRepository.save(favorite);
     }
 //
 //
     // Méthode réutilisable permettant d'aller chercher un produit dans la BDD en fonction de son id
     // Renvoie automatiquement une erreur 404 si le produit n'existe pas
-    public User fetchProduct(Long UserId) {
+    public User fetchUser(Long UserId) {
         User User = UserRepository.findById(UserId).orElseThrow(
             () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found")
         );

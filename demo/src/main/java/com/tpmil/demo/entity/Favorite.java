@@ -5,6 +5,7 @@ package com.tpmil.demo.entity;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -27,7 +28,7 @@ public class Favorite {
  // un film peut étre dans plusieurs favoris
     @ManyToOne
     @JoinColumn
-    @JsonIgnoreProperties("favorites")
+    @JsonManagedReference
     private Movie movie;
 
     public Movie getMovie() {
@@ -54,6 +55,10 @@ public class Favorite {
     }
     public void setId(long id) {
     	this.id = id;
+    }
+    public String toString(){
+
+      return this.getUser().getUsername()+this.getMovie().getOriginal_title()+"  Id : "+this.getId();
     }
 }
 

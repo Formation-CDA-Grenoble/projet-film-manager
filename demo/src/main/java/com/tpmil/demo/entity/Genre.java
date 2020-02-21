@@ -1,8 +1,12 @@
 //léo
 package com.tpmil.demo.entity;
+
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -24,13 +28,14 @@ public class Genre {
 
     @OneToMany(mappedBy = "genre")
     @JsonIgnoreProperties("genre")
-    private Set<Movie> movies;
+    @JsonBackReference
+    private List<Movie> movies;
 
 
-     public Set<Movie> getMovies() {
+     public List<Movie> getMovies() {
      	return this.movies;
      }
-     public void sets(Set<Movie> movies) {
+     public void set(List<Movie> movies) {
      	this.movies = movies;
 }
 

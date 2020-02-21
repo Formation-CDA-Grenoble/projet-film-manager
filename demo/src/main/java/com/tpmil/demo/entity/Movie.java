@@ -2,14 +2,16 @@
 package com.tpmil.demo.entity;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 // Cette classe est une entité de la BDD
 @Entity
@@ -40,49 +42,47 @@ public class Movie {
     private String original_language;
     @Column(name = "popularity", nullable = false)
     private Float popularity;
-  //  @Column(name = "genre_id", nullable = false)
-   // private int genre_id;
-    
-   
-      @OneToMany(mappedBy = "movie")
-     @JsonIgnoreProperties("movie")
-     private Set<Comment> comments;
+    // @Column(name = "genre_id", nullable = false)
+    // private int genre_id;
 
-
-     public Set<Comment> getComments() {
-     	return this.comments;
-     }
-     public void set(Set<Comment> comments) {
-         this.comments = comments;
-     }
-    
-    
     @OneToMany(mappedBy = "movie")
-    @JsonIgnoreProperties("movie")
-    private Set<Favorite> favorites;
+    @JsonBackReference
+     private List<Comment> comments;
+
+    public List<Comment> getComments() {
+        return this.comments;
+    }
+
+    public void set(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    @OneToMany(mappedBy = "movie")
+    @JsonBackReference
+    private List<Favorite> favorites;
 
 
-    public Set<Favorite> getFavorites() {
+    public List<Favorite> getFavorites() {
     	return this.favorites;
     }
-    public void sets(Set<Favorite> favorites) {
+    public void List(List<Favorite> favorites) {
         this.favorites = favorites;
     }
 
     @OneToMany(mappedBy = "movie")
-    @JsonIgnoreProperties("movie")
-    private Set<To_watch> to_watchs;
+    @JsonBackReference
+    private List<To_watch> to_watchs;
 
 
-    public Set<To_watch> getTo_watchs() {
+    public List<To_watch> getTo_watchs() {
     	return this.to_watchs;
     }
-    public void setTo_watch(Set<To_watch> to_watchs) {
+    public void setTo_watch(List<To_watch> to_watchs) {
     	this.to_watchs = to_watchs;
     }
     @ManyToOne
     @JoinColumn
-    @JsonIgnoreProperties("movies")
+    @JsonManagedReference
     private Genre genre;
 
     public Genre getGenre() {
@@ -93,14 +93,14 @@ public class Movie {
     }
 
     @OneToMany(mappedBy = "movie")
-    @JsonIgnoreProperties("movie")
-    private Set<History> history;
+    @JsonBackReference
+    private List<History> history;
 
 
-    public Set<History> getHistory() {
+    public List<History> getHistory() {
     	return this.history;
     }
-    public void setHystorys(Set<History> historys) {
+    public void setHistory(List<History> historys) {
         this.history = historys;
         
     }
