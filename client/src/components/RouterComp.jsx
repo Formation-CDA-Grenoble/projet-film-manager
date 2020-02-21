@@ -20,7 +20,7 @@ export default function RouterComp() {
     return (
     <Router>
       <div >
-        <nav >
+        <nav  >
         
           <ul className = "header">
           
@@ -29,24 +29,24 @@ export default function RouterComp() {
             <Link to="/">Home</Link>
            </Button>
 
-            <li>
+            <h4>
               <Link to="/Favorite">Favorite</Link>
-            </li>
+            </h4>
 
 
-            <li>
+            <h4>
               <Link to="/To_Watch">To_watch</Link>
-            </li>
+            </h4>
 
 
-            <li>
+            <h4>
               <Link to="/History">History</Link>
-            </li>
+            </h4>
 
             
-            <li>
-              <Link to="/Listory">Login</Link>
-            </li>
+            <h4>
+              <Link to="/login">Login</Link>
+            </h4>
             
 
         
