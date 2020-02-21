@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,11 +17,10 @@ function HomePage () {
         <Link to="/films/1">film2</Link>
         <Link to="/films/1">film3</Link>
         
-        
+       
         
       </div>
     );
   }
   
   export default HomePage;
-  

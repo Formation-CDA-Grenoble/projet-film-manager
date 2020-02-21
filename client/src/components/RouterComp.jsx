@@ -79,7 +79,7 @@ export default function RouterComp() {
 
 function Home() {
   return  (
-  <div>
+  <div className = "bigHome">
           <HomeSearch />
           <HomePage />  
        
@@ -94,7 +94,6 @@ function Films() {
   return (
     <div>
       <FilmsList/>
-      <FilmsPage/>
     </div>
    
 
