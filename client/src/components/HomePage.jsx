@@ -13,9 +13,13 @@ function HomePage () {
      
       <div className = "homi" >
         <h2> films : </h2>
-        <Link to="/films/1">film1</Link>
-        <Link to="/films/1">film2</Link>
-        <Link to="/films/1">film3</Link>
+        <h3><Link to="/films/1">film1</Link></h3>
+        <h3><Link to="/films/1">film2</Link></h3>
+        <h3> <Link to="/films/1">film3</Link></h3>
+        
+        
+        
+       
         
       </div>
     );

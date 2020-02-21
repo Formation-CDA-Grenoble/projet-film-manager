@@ -1,10 +1,11 @@
 
 import React from "react";
 import PagesContainer from "./PagesContainer.jsx" ;
-import HomePage from "./HomePage.jsx" ;
+import FilmsPageContainer from "./FilmsPageContainer.jsx"; 
 import FilmsList from "./FilmsList.jsx" ;
 import FilmsPage from "./FilmsPage" ;
 import HomeSearch from "./HomeSearch" ; 
+import HomePage from "./HomePage" ; 
 import Button from 'react-bootstrap/Button';
 import LoginComponent from './LoginComponent'
 import {
@@ -30,27 +31,25 @@ export default function RouterComp() {
             <Link to="/">Home</Link>
            </Button>
 
-            <h4>
+           <Button variant="outline-secondary" size="lg">
               <Link to="/Favorite">Favorite</Link>
-            </h4>
+            </Button>
 
-
-            <h4>
+            
+           <Button variant="outline-secondary" size="lg">
               <Link to="/To_Watch">To_watch</Link>
-            </h4>
-
-
-            <h4>
-              <Link to="/History">History</Link>
-            </h4>
-
-            
-            <h4>
-              <Link to="/login">Login</Link>
-            </h4>
-            
-
-        
+            </Button>
+           
+              
+            <Button variant="outline-secondary" size="lg">
+            <Link to="/History">History</Link>
+            </Button>
+           
+              
+            <Button variant="outline-secondary" size="lg">
+            <Link to="/login">Login</Link>
+            </Button>
+   
           </ul>
         </nav>
 
@@ -97,7 +96,12 @@ function Home() {
 function Films() {
   return (
     <div>
+      <FilmsPage/>
       <FilmsList/>
+      <div className = "jcp">
+         <img src="https://image.tmdb.org/t/p/w500/qNs0HRSEvSKmtcMiVa2O1yWUKCk.jpg" alt=""/>
+        
+      </div>
     </div>
    
 

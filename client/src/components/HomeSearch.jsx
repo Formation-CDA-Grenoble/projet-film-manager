@@ -27,7 +27,7 @@ function HomeSearch (props) {
           <input type="text" /> 
          
           <DropdownButton q
-              btnSize="xs"
+              btnSize="s"
               title="Genre"
               onSelect={(eventKey) => {
               }}

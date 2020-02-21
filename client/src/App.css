@@ -10,6 +10,7 @@
   padding : 1px ; 
   justify-content : space-around ; 
   align-items :  center ; 
+ 
 }
 
 .divi {
@@ -46,6 +47,7 @@ justify-content : center ;
   margin-top: 4px ;
   margin-bottom: 2px;
   height: 30px;
+  font-size: larger;
 }
 
 .homi {
@@ -57,13 +59,14 @@ justify-content : center ;
   flex-direction : column ; 
   margin-top: 50px ;
   height: 200px;
-
+  font-size: larger;
+  color: white;
 }
 
 .filmPage {
 display: flex;
 align-items: center;
-
+flex-direction : column ; 
 }
 
 .diviDessus {
@@ -75,12 +78,19 @@ object-fit: cover;
 
 .bigHome {
 
-background-image: url(images/ciné.jpg);
-image-rendering: pixelated;
+background-color: rgb(255, 210, 234);
+
 height: 1000px;
 }
 
 img {
 
   height: 500px;
+}
+
+.jcp {
+
+  display: flex;
+  
+  justify-content: center;
 }
