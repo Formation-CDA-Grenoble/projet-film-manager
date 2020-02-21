@@ -1,11 +1,11 @@
 
-
-
 import React from "react";
 import PagesContainer from "./PagesContainer.jsx" ;
 import HomePage from "./HomePage.jsx" ;
 import FilmsPage from "./FilmsPage.jsx" ;
 import FilmsList from "./FilmsList.jsx" ;
+import HomeSearch from "./HomeSearch" ; 
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -74,7 +74,9 @@ export default function RouterComp() {
 function Home() {
   return  (
   <div>
+          <HomeSearch/>
           <HomePage />  
+       
   </div>
    
   )
