@@ -9,6 +9,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import LoginComponent from "./loginpage/LoginComponent";
 
 
 export default function RouterComp() {
@@ -54,6 +55,9 @@ export default function RouterComp() {
           <Route path="/History">
             <History />
           </Route>
+          <Route path="/login">
+            <LoginComponent />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
@@ -73,6 +77,7 @@ function To_Watch() {
   return <Comp1 
           testProps = "to_watch"
           imgUrlProps = "https://image.tmdb.org/t/p/w500/qNs0HRSEvSKmtcMiVa2O1yWUKCk.jpg"
+          
           />
 }
 
