@@ -1,57 +1,59 @@
 
-import React from 'react';
+// import React from 'react';
 
-import axios from 'axios';
+// import axios from 'axios';
 
-export default class FilmsList extends React.Component {
-  state = {
-    films: []
-  }
+// export default class FilmsList extends React.Component {
+//   state = {
+    
+//       data: null,
+//       errorMessage: null,
+//   }
 
-  componentDidMount() {
-    axios.get(`http://localhost:8080/api/movies/${id}/favorite`)
-      .then(res => {
-        const films = res.data;
-        this.setState({ films });
-      })
-  }
-}
+//   componentDidMount() {
+//     axios.get(`http://localhost:8080/api/movies/${id}/favorite`)
+//       .then(res => {
+//         const films = res.data;
+//         this.setState({ films });
+//       })
+//   }
+// }
 
-    favorite = async () => {
-      const id = this.props.match.params.id;
-      try {
-        const response = await Axios.post(`http://localhost:8080/api/movies/${id}/favorite`);
-        const favorite = response.data;
-        const { data } = this.state;
-        this.setState({ data: {...data, favorite} })
-      }
-      catch(error) {
-        this.setState({ errorMessage: error.message });
-      }
-      render() 
-        return (
-       <ul>
-         { this.state.films.map(films => <li>{films.name}</li>)}
-      </ul>
-    )
-  }
+//     favorite = async () => {
+//       const id = this.props.match.params.id;
+//       try {
+//         const response = await Axios.post(`http://localhost:8080/api/movies/${id}/favorite`);
+//         const favorite = response.data;
+//         const { data } = this.state;
+//         this.setState({ data: {...data, favorite} })
+//       }
+//       catch(error) {
+//         this.setState({ errorMessage: error.message });
+//       }
+//       render() 
+//         return (
+//        <ul>
+//          { this.state.films.map(films => <li>{films.name}</li>)}
+//       </ul>
+//     )
+//   }
 
 
-  if (errorMessage) {
-    return (
-      <Layout>
-        {errorMessage}
-      </Layout>
-    );
-  }
+//   if (errorMessage) {
+//     return (
+//       <Layout>
+//         {errorMessage}
+//       </Layout>
+//     );
+//   }
 
-  if (data === null) {
-    return <FilmsListLoader />;
-  }
+//   if (data === null) {
+//     return <FilmsListLoader />;
+//   }
 
-  return (
-    <FilmsList {...data} favorite={this.favorite} />
-  );
+//   return (
+//     <FilmsList {...data} favorite={this.favorite} />
+//   );
 
 
 
